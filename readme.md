@@ -52,7 +52,7 @@ Here somethings that i want implement in the future:
 
 After opening the vault, press **ALT+E** (or **Command+E** on macOS) to access the main menu:
 
-![](readme-1_1.png)
+![](readme/readme-1_1.png)
 
 ### Understanding Targets and Notes
 
@@ -62,33 +62,33 @@ The first step is to create a target.
 
 ### Creating a Target
 
-![](readme_1.png)
+![](readme/readme_1.png)
 
-![](readme_2.png)
+![](readme/readme_2.png)
 
-![](readme_3.png)
+![](readme/readme_3.png)
 
 ### Creating a Note
 
 Now, let's create a note:
 
-![](readme_4.png)
+![](readme/readme_4.png)
 
 This is our newly created note:
 
-![](readme_5.png)
+![](readme/readme_5.png)
 
 We can link this note to a target using **ALT+E > Helpers > Link Host**, or manually by writing `[[target_name]]`.
 
-![](readme_6.png)
+![](readme/readme_6.png)
 
 Now our note is successfully linked to a target:
 
-![](readme_7.png)
+![](readme/readme_7.png)
 
 If we open the target note, we can see all the notes associated with it:
 
-![](readme_8.png)
+![](readme/readme_8.png)
 
 #### Methodology Notes
 
@@ -96,29 +96,29 @@ In the **Note Templates - Methodology** section, we have predefined templates fo
 
 For example, suppose you discover an **RCE** vulnerability and compromise a machine. The next step is privilege escalation. You can create a methodology note for **Linux privilege escalation** as follows:
 
-![](readme_4.png)
+![](readme/readme_4.png)
 
-![](readme_9.png)
+![](readme/readme_9.png)
 
 ##### Linux Machine Enumeration Template Example
 
 Now we had a note with methodology to Local Enumeration on Linux.
 
-![](readme_10.png)
+![](readme/readme_10.png)
 
 ##### Windows Machine Enumeration Template Example
 
 and now we had a note to Local Enumeration on Windows.
 
-![](readme_11.png)
+![](readme/readme_11.png)
 
 ### Storing Credentials
 
 When working with **Active Directory**, you may find credentials. To document them efficiently, use the **Credential Template**:
 
-![](readme_12.png)
+![](readme/readme_12.png)
 
-![](readme_13.png)
+![](readme/readme_13.png)
 
 By following this structured approach, you can maintain a well-organized and effective workflow throughout your OSCP preparation and penetration testing engagements.
 
