@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/ce174de4-f43c-4588-ac59-d4681193cc87)# QuickOSCP (Obsidian4OSCP)
+# QuickOSCP (Obsidian4OSCP)
 
 ## Introduction
 
