@@ -1,4 +1,4 @@
-# QuickOSCP (Obsidian4OSCP)
+![image](https://github.com/user-attachments/assets/ce174de4-f43c-4588-ac59-d4681193cc87)# QuickOSCP (Obsidian4OSCP)
 
 ## Introduction
 
@@ -59,6 +59,9 @@ After opening the vault, press **ALT+E** (or **Command+E** on macOS) to access t
 All notes are linked to a **target**. A target is simply another note that acts as an index, listing all associated notes. It also contains fields for proof and local information.
 
 The first step is to create a target.
+
+### Video Demo
+[Watch the video](https://vimeo.com/1055670514/0682619fd4)
 
 ### Creating a Target
 
