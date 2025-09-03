@@ -5,23 +5,26 @@ target:
 ---
 ## Credencial
 ```
-
+Peter:Peter@1234
 ```
 
-## Checklist
-- [ ] Testar todas as credenciais em todos os hosts
-	- [ ] wmi
-	- [ ] rdp
-	- [ ] winrm
-	- [ ] psexec
-- [ ] Testar credencial de forma local (nxc / --local-auth)
-### Hash NTLM
-- [ ] Pass The Hash em todos os hosts
-- [ ] Tentar quebrar com o hashcat
-### Plaintext
-- [ ] Testar senha em todas as outras credenciais identificadas (password spray)
+# Checklist  
+- [ ] Test all credentials on all hosts  
+  - [ ] WMI  
+  - [ ] RDP  
+  - [ ] WinRM  
+  - [ ] PsExec  
+- [ ] Test credentials locally (`nxc` / `--local-auth`)  
 
-## Dicas
+### NTLM Hash  
+- [ ] Perform Pass The Hash on all hosts  
+- [ ] Attempt to crack using Hashcat  
+
+### Plaintext  
+- [ ] Test the password on all other identified credentials (password spray)  
+
+## TIPs
+you can test all the credentials in the networkx
 ```
 nxc smb 192.168.1.0/24 -u web_svc -p 'senha'
 nxc wmi 192.168.1.0/24 -u web_svc -p 'senha'
